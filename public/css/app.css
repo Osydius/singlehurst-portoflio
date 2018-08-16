@@ -10471,13 +10471,40 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.home__title {
+  font-size: 84px;
 }
 
-body {
-  background: red;
+.home__nav--block {
+  font-size: 32px;
+}
+
+.jumbotron {
+  padding: 0;
+}
+
+.jumbotron__container {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem;
+}
+
+.tile {
+  position: relative;
+  text-align: center;
+}
+
+.tile__link {
+  width: 100%;
+  color: black;
+}
+
+.tile__text--center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 

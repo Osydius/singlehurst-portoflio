@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -8,7 +9,12 @@
 
         <link rel="icon" href="../../../../favicon.ico">
 
-        <title>Casey Singlehurst | @yield ('pageTitle')</title>
+        <title>
+            Casey Singlehurst
+            @hasSection ('pageTitle')
+                | @yield ('pageTitle')
+            @endif
+        </title>
 
         <!-- Fonts -->
         @include ('Site.fonts')
@@ -23,12 +29,13 @@
         <div class="container">
             @include ('Site.header')
 
-            @include ('Site.nav')
+            <div class="content">
+                @yield ('content')
+            </div>
+
+            @include ('Site.footer')
+
         </div>
-
-        @yield ('content')
-
-        @include ('Site.footer')
     </body>
 
     @include ('Site.scripts')

@@ -1,0 +1,19 @@
+.tile {
+    position: relative;
+    text-align: center;
+
+    &__link {
+        width: 100%;
+        color: black;
+    }
+
+    &__text {
+
+        &--center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
