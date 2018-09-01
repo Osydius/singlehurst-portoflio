@@ -19,15 +19,34 @@ Route::get('/', function () {
 Route::get('/home', 'PagesController@home')->name('home');
 
 //Post routes
-Route::get('/posts', 'PostsController@index');
+Route::name('posts.')->group(function () {
+    Route::get('/posts', 'PostsController@index')->name('index');
 
-Route::get('/posts/create', 'PostsController@create');
+    Route::get('/posts/create', 'PostsController@create')->name('create');
 
-Route::post('/posts', 'PostsController@store');
+    Route::post('/posts', 'PostsController@store')->name('store');
 
-Route::get('/posts/{post}', 'PostsController@show');
+    Route::get('/posts/{post}', 'PostsController@show')->name('show');
+});
+
 
 //Project routes
+Route::name('projects.')->group(function () {
+    Route::get('/projects', 'ProjectsController@index')->name('index');
+
+    Route::get('/projects/create', 'ProjectsController@create')->name('create');
+
+    Route::post('/projects', 'ProjectsController@store')->name('store');
+
+    Route::get('/projects/{project}', 'ProjectsController@show')->name('show');
+
+    Route::get('/projects/{project}/edit', 'ProjectsController@edit')->name('edit');
+
+    Route::put('/projects/{project}', 'ProjectsController@update')->name('update');
+    Route::patch('/projects/{project}', 'ProjectsController@update')->name('update');
+
+    Route::delete('/projects/{project}', 'ProjectsController@destroy')->name('destroy');
+});
 
 //User routes
 Route::get('/register', 'UsersController@create')->name('register');

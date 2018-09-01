@@ -17,8 +17,8 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->string('video_url');
-            $table->string('github_url');
+            $table->string('video_url')->nullable();
+            $table->string('github_url')->nullable();
             $table->timestamps();
         });
     }

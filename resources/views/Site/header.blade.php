@@ -18,4 +18,30 @@
             @endif
         </div>
     </div>
+
+    @if (Auth::check())
+        <div class="row flex-nowrap">
+            <div class="col-12">
+                @if (!empty($createAction))
+                    <a href="{{ route($createAction) }}" class="btn btn-success">
+                        Create {{ $modelName }}
+                    </a>
+                @endif
+
+                @if (!empty($editAction) && !empty($modelBind))
+                    <a href="{{ route($editAction, $modelBind) }}" class="btn btn-primary">
+                        Edit {{ $modelName }}
+                    </a>
+                @endif
+
+                @if (!empty($deleteAction) && !empty($modelBind))
+                    <form action="{{ route($deleteAction, $modelBind) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete {{ $modelName }}</button>
+                    </form>
+                @endif
+            </div>
+        </div>
+    @endif
 </header>
